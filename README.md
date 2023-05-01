@@ -19,10 +19,10 @@ Header
 
 ## VS Code Extensions:
 
-Prettier
-Bracket Pair Colorization
-ESLint
-Better Comments
+Prettier\
+Bracket Pair Colorization\
+ESLint\
+Better Comments\
 
 ---
 
