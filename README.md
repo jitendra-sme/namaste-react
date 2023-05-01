@@ -22,7 +22,7 @@ Header
 Prettier\
 Bracket Pair Colorization\
 ESLint\
-Better Comments\
+Better Comments
 
 ---
 
