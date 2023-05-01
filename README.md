@@ -1,23 +1,24 @@
 # Namaste React 🔥
 
-# page structure
+### page structure
 
-/\*
-Header
 
-- logo
-- nav
-  Body
-- search
-- cards
-  Footer
-- copyrights
-- quick links
-  \*/
+> Header
+>> logo  
+>> nav
 
-# Notes
+> Body  
+>> search  
+>> cards  
 
-## VS Code Extensions:
+> Footer  
+>> copyrights  
+>> quick links   
+
+
+## Notes
+
+### VS Code Extensions:
 
 Prettier\
 Bracket Pair Colorization\
