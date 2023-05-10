@@ -2,19 +2,20 @@
 
 ### page structure
 
-
 > Header
->> logo  
->> nav
+>
+> > logo  
+> > nav
 
-> Body  
->> search  
->> cards  
+> Body
+>
+> > search  
+> > cards
 
-> Footer  
->> copyrights  
->> quick links   
-
+> Footer
+>
+> > copyrights  
+> > quick links
 
 ## Notes
 
@@ -48,21 +49,21 @@ npm install react, react-dom
 read about parceljs.org
 
 Babel - transpile code to JS so JS Engine can undderstand it  
-JSX code is transpiled by Parcel via Babel while executing/building  
+JSX code is transpiled by Parcel via Babel while executing/building
 
 props = arguments to function  
 config driven ui - frontend system design  
 ui layer, data layer
 
 resData?.data = optional chaining  
-Key => when there component at same level, they should be uniquely represented  
+Key => when there component at same level, they should be uniquely represented
 
 Index as a key is an anit-pattern (never use index as a key)
 
 Reach folder structure  
 default and named export/import  
 UI Layer, Data Layer  
-Fast DOM manipulation  
+Fast DOM manipulation
 
 Hooks => it's normal JS utility function which is given to us by React, it's a pre-built function  
 Two most important hooks => useState(), useEffect()  
@@ -71,4 +72,23 @@ whenever a state variable is updated, React will re-render the component.
 Reconciliation Algorithm (React Fiber - https://github.com/acdlite/react-fiber-architecture)  
 Diff. Algorithm
 
-Hooks method/function trigger the diff. algorithm which push the difference b/w old and new Virtual DOM to Actual DOM  
+Hooks method/function trigger the diff. algorithm which push the difference b/w old and new Virtual DOM to Actual DOM
+
+### From Live Demo
+
+state variable re-render the component but updates only the element where the state variable is used. (fiber architecture)
+
+Microservices, Monolith
+
+UI Microservice, API Microservice, Data Microservice, Logs Microservice, Auth Microservice
+
+support@namastedev.com - https://discord.gg/TesmMGGe
+
+Shimmer Design - loading effect  
+Conditional Rendering  
+home work = filteredRestaurant, no result of filter, shimmer at initial load, login & logout, async and await with error handling
+
+JS Expression and Statement => only JS Expression can be written inside JSX  
+JSX Curly braces
+
+start lesson 07 - Finding the path
