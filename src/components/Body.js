@@ -1,7 +1,7 @@
 import Card from "./Card";
 import restroList from "../utils/mockData";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
+import { ShimmerSimpleGallery } from "react-shimmer-effects";
 
 const filterData = (input, listData) => {
   const filterData = listData.filter((resList) =>
@@ -11,7 +11,8 @@ const filterData = (input, listData) => {
 };
 
 const Body = () => {
-  const [restroState, setRestroState] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
     getRestaurants();
@@ -23,12 +24,11 @@ const Body = () => {
     );
     const jsonData = await response.json();
     const restaurantsData = jsonData?.data?.cards[2]?.data?.data?.cards;
-    setRestroState(restaurantsData);
+    setAllRestaurants(restaurantsData);
+    setFilterRestaurant(restaurantsData);
   }
 
-  return restroState.length <= 1 ? (
-    <Shimmer />
-  ) : (
+  return (
     <section className="container">
       <div className="search-bar">
         <input
@@ -41,28 +41,34 @@ const Body = () => {
         />
         <button
           onClick={() => {
-            const data = filterData(searchText.toLowerCase(), restroState);
-            setRestroState(data);
+            const data = filterData(searchText.toLowerCase(), allRestaurants);
+            setFilterRestaurant(data);
           }}
         >
           Search
         </button>
         <button
           onClick={() => {
-            const topRatings = restroState.filter(
-              (topRestro) => topRestro.data.avgRating >= 4
+            const topRatings = filterRestaurant.filter(
+              (topRestaurant) => topRestaurant.data.avgRating >= 4
             );
-            setRestroState(topRatings);
+            setFilterRestaurant(topRatings);
           }}
         >
           Top Restaurant
         </button>
       </div>
-      <div className="card-container">
-        {restroState.map((restaurant) => (
-          <Card key={restaurant.data.id} restro={restaurant.data} />
-        ))}
-      </div>
+      {allRestaurants.length === 0 ? (
+        <ShimmerSimpleGallery card imageHeight={300} caption />
+      ) : filterRestaurant.length === 0 ? (
+        <p>No restaurant found</p>
+      ) : (
+        <div className="card-container">
+          {filterRestaurant.map((restaurant) => (
+            <Card key={restaurant.data.id} restro={restaurant.data} />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
