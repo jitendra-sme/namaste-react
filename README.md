@@ -92,3 +92,17 @@ JS Expression and Statement => only JS Expression can be written inside JSX
 JSX Curly braces
 
 start lesson 07 - Finding the path
+
+useState is a hook which is used as a local variable inside a component  
+useEffect is called after initial render of the component.  
+two parameters => callback, dependency array  
+Never create a component inside a component  
+Do not create a hook inside a condition, loop like if/else, for loop  
+Array(10).fill("").map((e,index)=>(<div>Shimmer</div>))
+
+React Router  
+npm install react-router-dom  
+2 side routing: client side and server side routing  
+Dynamic routing  
+Object.values - study  
+Login page with Formik
