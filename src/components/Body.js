@@ -1,7 +1,8 @@
 import Card from "./Card";
 import restroList from "../utils/mockData";
 import { useEffect, useState } from "react";
-import { ShimmerSimpleGallery } from "react-shimmer-effects";
+import ShimmerCustom from "./ShimmerCustom";
+import { Link } from "react-router-dom";
 
 const filterData = (input, listData) => {
   const filterData = listData.filter((resList) =>
@@ -59,13 +60,18 @@ const Body = () => {
         </button>
       </div>
       {allRestaurants.length === 0 ? (
-        <ShimmerSimpleGallery card imageHeight={300} caption />
+        <ShimmerCustom />
       ) : filterRestaurant.length === 0 ? (
         <p>No restaurant found</p>
       ) : (
         <div className="card-container">
           {filterRestaurant.map((restaurant) => (
-            <Card key={restaurant.data.id} restro={restaurant.data} />
+            <Link
+              to={"/restaurant/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
+              <Card restro={restaurant.data} />
+            </Link>
           ))}
         </div>
       )}

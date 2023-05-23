@@ -1,27 +1,23 @@
-export default Shimmer = () => {
+export default ShimmerCustom = () => {
   return (
-    <section className="container">
-      <div className="search-bar"></div>
-      <div className="card-container">
-        <div className="card">
-          <div
-            style={{
-              backgroundColor: "lightgray",
-              width: "100%",
-              height: "100px",
-            }}
-          ></div>
-          <h4>&nbsp;</h4>
-          <div title="cuisine">&nbsp;</div>
-          <div className="info-bar">
-            <span className="ratings">&#9733;</span>
-            <span className="middot">&middot;</span>
-            <span>&nbsp; mins</span>
-            <span className="middot">&middot;</span>
-            <span>&#8377;&nbsp; for two</span>
+    <div>
+      {Array(10)
+        .fill("")
+        .map((e, index) => (
+          <div key={index} className="card" style={{ float: "left" }}>
+            <div className="shimmer"></div>
+            <h4>&nbsp;</h4>
+            <div className="shimmer-md">&nbsp;</div>
+            <div className="info-bar">
+              <span className="shimmer-sm">&nbsp;</span>
+              <span className="middot">&middot;</span>
+              <span className="shimmer-sm">&nbsp;</span>
+              <span className="middot">&middot;</span>
+              <span className="shimmer-sm">&nbsp;</span>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        ))}
+      <div style={{ clear: "both" }}></div>
+    </div>
   );
 };

@@ -93,3 +93,21 @@ button {
   padding: 0.1em;
   margin: 1em;
 }
+.shimmer {
+  background-color: lightgray;
+  width: 100%;
+  height: 100px;
+}
+.shimmer-md {
+  background-color: lightgray;
+  width: 100%;
+  height: 20px;
+}
+.shimmer-sm {
+  background-color: lightgray;
+  width: 20%;
+  height: 20px;
+}
+a {
+  text-decoration: none;
+}
