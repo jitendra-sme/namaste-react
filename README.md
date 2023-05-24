@@ -91,7 +91,7 @@ home work = filteredRestaurant, no result of filter, shimmer at initial load, lo
 JS Expression and Statement => only JS Expression can be written inside JSX  
 JSX Curly braces
 
-start lesson 07 - Finding the path
+## E:7 - Finding the path
 
 useState is a hook which is used as a local variable inside a component  
 useEffect is called after initial render of the component.  
@@ -106,3 +106,14 @@ npm install react-router-dom
 Dynamic routing  
 Object.values - study  
 Login page with Formik
+
+## E:8 - Let's get Classy
+
+Profile component using router  
+Class based component cannot be created without render method.  
+Research: 1. constructor, super() in class comp. 2. async works with componentDidMount but not with useEffect() function - WHY?  
+WE DO NOT MUTATE STATE DIRECTLY, NEVER do this.state = something  
+Class component => constructor(), super(), this.state = {}, this.setState(), componentDidMount()  
+lifecycle => 1. Render phase 2. Commit phase  
+componentDidMount => will be triggered after first render  
+componentDidUpdate => will be triggered after every next render
