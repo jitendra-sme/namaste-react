@@ -120,8 +120,10 @@ Render => the render() method is the only required method in a class component.
 
 ### Class component
 
-componentDidMount() => it is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.  
-componentDidUpdate(prevProps, prevState, snapshot) => it is invoked immediately after updating occurs. This method is not called for the initial render.  
+componentDidMount() => it is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
+
+componentDidUpdate(prevProps, prevState, snapshot) => it is invoked immediately after updating occurs. This method is not called for the initial render.
+
 componentWillUnmount() => it is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in componentDidMount().
 
 > Research:
