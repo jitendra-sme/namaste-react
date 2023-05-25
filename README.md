@@ -120,13 +120,13 @@ Render => the render() method is the only required method in a class component.
 
 ### Class component
 
-componentDidMount() => componentDidMount() is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
-componentDidUpdate(prevProps, prevState, snapshot) => it is invoked immediately after updating occurs. This method is not called for the initial render.
+componentDidMount() => it is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.  
+componentDidUpdate(prevProps, prevState, snapshot) => it is invoked immediately after updating occurs. This method is not called for the initial render.  
 componentWillUnmount() => it is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any subscriptions that were created in componentDidMount().
 
 > Research:
 >
-> > 1. constructor(props) and super(props) in class comp. =>
+> > 1. constructor(props) and super(props) in class comp. =>  
 > >    If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.  
 > >    The constructor for a React component is called before it is mounted. When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, **this.props will be undefined in the constructor**, which can lead to bugs.
 > > 2. async works with componentDidMount but not with useEffect() function - WHY?
