@@ -131,4 +131,16 @@ componentWillUnmount() => it is invoked immediately before a component is unmoun
 > > 1. constructor(props) and super(props) in class comp. =>  
 > >    If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component.  
 > >    The constructor for a React component is called before it is mounted. When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, **this.props will be undefined in the constructor**, which can lead to bugs.
-> > 2. async works with componentDidMount but not with useEffect() function - WHY?
+> > 2. async works with componentDidMount but not with useEffect() hook =>  
+> >    You cannot directly make the callback function supplied to the useEffect hook async because: (1) async functions implicitly return a promise, and; (2) useEffect expects its callback to either return nothing or a clean-up function.  
+> >    Therefore, to use async/await inside the useEffect hook, you can do either of the following: (1) Create a Self-Invoking Anonymous Function; (2) Create a Nested Named Function.
+
+## E:9 Optimizing our app
+
+Function are Reusable, Readable, Maintainable, Testable  
+Modularity?  
+Custom Hooks => API calls, isOnline (first try with custom function and then hook - check with optional chaining)  
+Chunking / Code Splitting / Dynamic Bundling / Lazy Loading / On Demand Loading / Dynamic Import  
+System Design (architecture)  
+Upon On Demand Loading => upon render => suspend loading  
+Never ever load your dynamic component inside another component
