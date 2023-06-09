@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 export default Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <header>
-      <div className="logo">
+    <header className="flex justify-between items-center p-8 mb-2 shadow-md">
+      <div className="w-28">
         <img src={LOGO_IMG} alt="logo" />
       </div>
       <nav>
-        <ul>
+        <ul className="flex gap-2">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -24,6 +24,7 @@ export default Header = () => {
         </ul>
         {!isLoggedIn ? (
           <button
+            className="float-right"
             onClick={() => {
               setIsLoggedIn(true);
             }}
@@ -32,6 +33,7 @@ export default Header = () => {
           </button>
         ) : (
           <button
+            className="float-right"
             onClick={() => {
               setIsLoggedIn(false);
             }}

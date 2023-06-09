@@ -40,7 +40,7 @@ const Body = () => {
   }
 
   return (
-    <section className="container">
+    <section className="bg-gray-50">
       <div className="search-bar">
         <input
           type="search"
@@ -51,6 +51,7 @@ const Body = () => {
           }}
         />
         <button
+          className="bg-blue-700 text-white py-1 px-4 rounded-full m-2"
           onClick={() => {
             const data = filterData(searchText.toLowerCase(), allRestaurants);
             setFilterRestaurant(data);
@@ -59,6 +60,7 @@ const Body = () => {
           Search
         </button>
         <button
+          className="bg-blue-700 text-white py-1 px-4 rounded-full m-2"
           onClick={() => {
             const topRatings = filterRestaurant.filter(
               (topRestaurant) => topRestaurant.data.avgRating >= 4
@@ -74,9 +76,10 @@ const Body = () => {
       ) : filterRestaurant?.length === 0 ? (
         <p>No restaurant found</p>
       ) : (
-        <div className="card-container">
+        <div className="flex flex-wrap gap-8 m-8">
           {filterRestaurant?.map((restaurant) => (
             <Link
+              className="w-60 bg-white p-4 shadow-md hover:bg-gray-100"
               to={"/restaurant/" + restaurant.data.id}
               key={restaurant.data.id}
             >

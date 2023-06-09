@@ -10,15 +10,17 @@ const Card = (props) => {
     cloudinaryImageId,
   } = props.restro;
   return (
-    <div className="card">
+    <div>
       <img src={IMG_URL + cloudinaryImageId} />
-      <h4>{name}</h4>
-      <div title="cuisine">{cuisines.join(", ")}</div>
-      <div className="info-bar">
+      <h4 className="font-bold">{name}</h4>
+      <div title="cuisine" className="text-sm">
+        {cuisines.join(", ")}
+      </div>
+      <div className="flex justify-between text-base">
         <span className="ratings">&#9733; {ratings}</span>
-        <span className="middot">&middot;</span>
+        <span className="text-5xl leading-4">&middot;</span>
         <span>{deliveryTime} mins</span>
-        <span className="middot">&middot;</span>
+        <span className="text-5xl leading-4">&middot;</span>
         <span>&#8377;{costForTwo / 100} for two</span>
       </div>
     </div>
