@@ -9,9 +9,9 @@ const useAPI = (url) => {
       setFetchData(data);
     };
     getData();
-    console.log("custome hook - useEffect()");
+    // console.log("custome hook - useEffect()");
   }, []);
-  console.log("custome hook");
+  // console.log("custome hook");
   return fetchData;
 };
 export default useAPI;

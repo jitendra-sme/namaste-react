@@ -1,7 +1,7 @@
 import Card from "./Card";
 import restroList from "../utils/mockData";
 import { useEffect, useState } from "react";
-import ShimmerCustom from "./ShimmerCustom";
+import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useAPI from "../hooks/useAPI";
 
@@ -16,14 +16,14 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
-  console.log("before API call");
+  // console.log("before API call");
   const restaurantList = useAPI(
     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&page_type=DESKTOP_WEB_LISTING"
   );
-  console.log("after API call");
+  // console.log("after API call");
   useEffect(() => {
     // getRestaurants();
-    console.log("body - useEffect()");
+    // console.log("body - useEffect()");
     const restaurantsData = restaurantList?.data?.cards[2]?.data?.data?.cards;
     setAllRestaurants(restaurantsData);
     setFilterRestaurant(restaurantsData);
@@ -72,17 +72,18 @@ const Body = () => {
         </button>
       </div>
       {allRestaurants?.length === 0 ? (
-        <ShimmerCustom />
+        <Shimmer />
       ) : filterRestaurant?.length === 0 ? (
         <p>No restaurant found</p>
       ) : (
         <div className="flex flex-wrap gap-8 m-8">
           {filterRestaurant?.map((restaurant) => (
             <Link
-              className="w-60 bg-white p-4 shadow-md hover:bg-gray-100"
+              className="w-64 bg-white p-4 shadow-md hover:bg-gray-100"
               to={"/restaurant/" + restaurant.data.id}
               key={restaurant.data.id}
             >
+              {/* <Card user={user} restro={restaurant.data} /> */}
               <Card restro={restaurant.data} />
             </Link>
           ))}

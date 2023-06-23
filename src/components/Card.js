@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { IMG_URL } from "../utils/const";
+import UserContext from "../utils/userContext";
 
 const Card = (props) => {
   const {
@@ -9,6 +11,8 @@ const Card = (props) => {
     costForTwo,
     cloudinaryImageId,
   } = props.restro;
+  // const user = props?.user;
+  const { user } = useContext(UserContext);
   return (
     <div>
       <img src={IMG_URL + cloudinaryImageId} />
@@ -23,6 +27,10 @@ const Card = (props) => {
         <span className="text-5xl leading-4">&middot;</span>
         <span>&#8377;{costForTwo / 100} for two</span>
       </div>
+      <span>
+        Username: {user?.name} <br />
+      </span>
+      <span>Email: {user?.email}</span>
     </div>
   );
 };

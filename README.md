@@ -144,3 +144,34 @@ Chunking / Code Splitting / Dynamic Bundling / Lazy Loading / On Demand Loading 
 System Design (architecture)  
 Upon On Demand Loading => upon render => suspend loading  
 Never ever load your dynamic component inside another component
+
+## E:10 Jo Dikhta Hai Vo Bikta Hai - What is seen is sold
+
+CSS
+Markup: 1. Native CSS  
+2. Sass  
+3. Inline CSS  
+4. Styled Components  
+5. CSS Component Library:
+
+- Pros: Easy to use
+  - Fast development
+  - Reuability
+  - Consistency
+- Cons: Builder size is heavy
+  - No customization - lose control on design
+
+Homework: PostCSS - transform CSS with JS, tailwind.config.js  
+.postcssrc = takes the configuration and takes Parcel to compile tailwind css to normal css  
+Extensions: Tailwind CSS IntelliSense
+
+## E:11 Data is the new Oil
+
+support@namastedev.com
+
+STUDY: Suspense from React  
+Props Drilling - passing props to grand-children through direct child  
+React Developer Tools  
+Lifting the State Up - control children comp. from parents instead of children comp.  
+Context - createContext, useContext, createContext Object.Provider
+HW: nesting context

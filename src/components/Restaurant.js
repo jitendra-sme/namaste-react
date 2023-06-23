@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import ShimmerCustom from "./ShimmerCustom";
+import { Fragment, useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 import Card from "./Card";
 import useAPI from "../hooks/useAPI";
 
@@ -12,9 +12,9 @@ const Restaurant = () => {
   const restaurantInfo = useAPI(restaurantID);
 
   return !restaurantInfo ? (
-    <ShimmerCustom />
+    <Shimmer />
   ) : (
-    <>
+    <Fragment>
       <Card
         key={restaurantInfo?.data?.cards[0]?.card?.card?.info?.id}
         restro={{
@@ -30,7 +30,7 @@ const Restaurant = () => {
             restaurantInfo?.data?.cards[0]?.card?.card?.info?.cloudinaryImageId,
         }}
       />
-    </>
+    </Fragment>
   );
 };
 export default Restaurant;

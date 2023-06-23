@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, Suspense, useState, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -10,12 +10,21 @@ import Contact from "./components/Contact";
 import Restaurant from "./components/Restaurant";
 import Signup from "./components/Signup";
 import Profile from "./components/Profile";
+import Shimmer from "./components/Shimmer";
+import InstaMart from "./components/InstaMart";
+import UserContext from "./utils/userContext";
 
+// const user = { name: "Jitendra", email: "dummy@test.com" };
 const App = () => {
   /* const [signup, setSignup] = useState(false);
   const signupHandler = (bool) => {
     setSignup(bool);
   }; */
+  // const user = useContext(UserContext);
+  const [user, setUser] = useState({
+    name: "Jitu",
+    email: "test@gmail.com",
+  });
   return (
     <Fragment>
       {/* {!signup && <Signup sendDataBack={signupHandler} />}
@@ -26,9 +35,11 @@ const App = () => {
           <Footer />
         </>
       )} */}
-      <Header />
-      <Outlet />
-      <Footer />
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </Fragment>
   );
 };
@@ -40,6 +51,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
+        // element: <Body user={{ user }} />,
         element: <Body />,
       },
       {
@@ -59,6 +71,14 @@ const appRouter = createBrowserRouter([
       {
         path: "restaurant/:resid",
         element: <Restaurant />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <InstaMart />,
+          </Suspense>
+        ),
       },
     ],
   },
