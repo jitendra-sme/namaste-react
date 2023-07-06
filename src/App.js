@@ -12,7 +12,10 @@ import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import InstaMart from "./components/InstaMart";
-import UserContext from "./utils/userContext";
+import UserContext from "./utils/UserContext";
+import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 // const user = { name: "Jitendra", email: "dummy@test.com" };
 const App = () => {
@@ -35,11 +38,13 @@ const App = () => {
           <Footer />
         </>
       )} */}
-      <UserContext.Provider value={{ user: user, setUser: setUser }}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </UserContext.Provider>
+      <Provider store={store}>
+        <UserContext.Provider value={{ user: user, setUser: setUser }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
     </Fragment>
   );
 };
@@ -79,6 +84,10 @@ const appRouter = createBrowserRouter([
             <InstaMart />,
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

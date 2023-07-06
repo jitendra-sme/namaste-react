@@ -173,5 +173,21 @@ STUDY: Suspense from React
 Props Drilling - passing props to grand-children through direct child  
 React Developer Tools  
 Lifting the State Up - control children comp. from parents instead of children comp.  
-Context - createContext, useContext, createContext Object.Provider
+Context - createContext, useContext, createContext Object.Provider  
 HW: nesting context
+
+## E:12 Let's build our app
+
+Context => any component can modify the Context and it can be accessed by any component
+
+Redux = old way  
+Redux Toolkit = new way  
+Redux Store (Big Object) => an event/click on a button Dispatches an Action which calls a Reducer function which updates the slice of the Redux Store  
+Write mode => fire an event >> dispatches an action >> calls a reducers function >> updates the slice of the store  
+Read mode => using useSelector to read Redux Store  
+Installation => npm i @reduxjs/toolkit (core job of redux is maintain/manage the store)  
+Installlation=> npm i react-redux (creating the bridge b/w react and redux)
+
+=> configureStore, Provider component, createSlice, useDispatch, useSelector  
+redux-toolkit documentation - middleware, thunk, RTK query  
+Redux DevTools chrome extension

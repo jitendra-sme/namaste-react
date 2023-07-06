@@ -79,7 +79,7 @@ const Body = () => {
         <div className="flex flex-wrap gap-8 m-8">
           {filterRestaurant?.map((restaurant) => (
             <Link
-              className="w-64 bg-white p-4 shadow-md hover:bg-gray-100"
+              className="flex"
               to={"/restaurant/" + restaurant.data.id}
               key={restaurant.data.id}
             >

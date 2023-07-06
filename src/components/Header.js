@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { LOGO_IMG } from "../utils/const";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import cartSlice from "../utils/cartSlice";
+import store from "../utils/store";
 
 export default Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { user } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <header className="flex justify-between items-center p-8 mb-2 shadow-md">
       <div className="w-28">
@@ -20,8 +27,11 @@ export default Header = () => {
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to="/cart">Cart - {cartItems.length} item(s)</Link>
+          </li>
         </ul>
+        <span className="font-bold text-lg ">{user.name}</span>
         {!isLoggedIn ? (
           <button
             className="float-right"

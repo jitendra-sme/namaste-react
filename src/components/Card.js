@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { IMG_URL } from "../utils/const";
-import UserContext from "../utils/userContext";
+import UserContext from "../utils/UserContext";
 
 const Card = (props) => {
   const {
@@ -14,7 +14,7 @@ const Card = (props) => {
   // const user = props?.user;
   const { user } = useContext(UserContext);
   return (
-    <div>
+    <div className="w-64 bg-white p-4 shadow-md hover:bg-gray-100">
       <img src={IMG_URL + cloudinaryImageId} />
       <h4 className="font-bold">{name}</h4>
       <div title="cuisine" className="text-sm">
